@@ -24,21 +24,6 @@ public class ErreurChargement extends HttpServlet {
     //out.println("je suis dans doPost de Erreur Chargement");
     String fichier = request.getParameter("file");
     //out.println("Fichier erreur chargement"+fichier);
-        isValide = 24;
-      }
-    } else if (errorWritten) {
-      out.println("<p><b><font color='#ff0000' size='4'>ERREUR : " +
-        errorMsg(isValide) + "</font></b></p>");
-      errorWritten = false;
-    }
-    if (isValide == 0) {
-      racine = document.getRootElement();
-      String codeEntreprise = racine.getChild("Identification")
-        .getChild("CodeEntreprise").getText();
-      String codeExe = racine.getChild("Identification").getChild("Exercice")
-        .getText();
-      String codePer = racine.getChild("Identification").getChild("Periode")
-        .getText();
       int exercice = Integer.parseInt(codeExe);
       int periode = Integer.parseInt(codePer);
       String codeEtat = racine.getChild("Identification").getChild("CodeEtat")
