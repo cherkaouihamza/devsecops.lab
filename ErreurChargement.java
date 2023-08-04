@@ -29,24 +29,6 @@ public class ErreurChargement extends HttpServlet {
       String codeEtat = racine.getChild("Identification").getChild("CodeEtat")
         .getText();
       String codeTableau = racine.getChild("Identification")
-        .getChild("CodeTableau").getText();
-      String codeCombinaison = racine.getChild("Identification")
-        .getChild("CodeCombinaison").getText();
-      String v = "";
-      try {
-        v = version("T", codeEntreprise, codeEtat, codeTableau, codeExe, codePer);
-        System.out.println("j'ai cherche la version qui est egale à "+v);
-        out.println("<h2>Identification du tableau</h2><p/>");
-        out.println("<table cellspacing='2' cellpadding='3' " +
-          "border='2' width='100%'>");
-        sql = "select nom_lg_entre from controle.info_entre where cde_entre = '" +
-          codeEntreprise + "'";
-        System.out.println("la requete est "+sql);  
-        rset = stmt.executeQuery(sql);
-        String nomEntreprise = "";
-        if (rset.next()) {
-          nomEntreprise = rset.getString(1);
-          System.out.println("le nom entreprise est "+nomEntreprise);
         }
         rset.close();
         out.println("<tr class='r0'><td width='25%'>Entreprise : " +
